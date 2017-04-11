@@ -51,9 +51,12 @@ def configure(keymap):
         # ワンショットモディファイア
 
         # 単独 および 修飾キーと一緒に押された場合
-        for modify in ("", "Shift-", "Ctrl-", "Ctrl-Shift-", "Alt-", "Cmd-", "Cmd-Shift-"):
+        for modify in ("", "Shift-", "Ctrl-", "Ctrl-Shift-", "Alt-", "Cmd-Shift-"):
             # Space
             keymap_global[ "O-" + modify + "RShift" ] = modify + "Space"
+
+        # command + Space で Alfred を実行する
+        keymap_global[ "O-Cmd-RShift" ] = keymap.SubProcessCallCommand( cmd=[ "open", "-a", "Alfred" ], cwd=os.environ["HOME"] )
 
         # かな
         keymap_global["O-RCtrl"] = "(104)"
@@ -104,3 +107,17 @@ def configure(keymap):
         keymap_global[ "User0-Left" ]  = "Alt-Cmd-H"
         # User0 + →: 右半分
         keymap_global[ "User0-Right" ] = "Alt-Cmd-L"
+
+
+    # --------------------------------------------------------------------
+    # 特定ウィンドウのアクティブ化
+    # --------------------------------------------------------------------
+    if 1:
+        # User0 + 1 : Finder
+        keymap_global[ "User0-1" ] = keymap.ActivateApplicationCommand( app_name="com.apple.finder" )
+        # User0 + 2 : Safari
+        keymap_global[ "User0-2" ] = keymap.ActivateApplicationCommand( app_name="com.apple.Safari" )
+        # User0 + 3 : Terminal
+        keymap_global[ "User0-3" ] = keymap.ActivateApplicationCommand( app_name="com.apple.Terminal" )
+        # User0 + 4 : OneNote
+        keymap_global[ "User0-4" ] = keymap.ActivateApplicationCommand( app_name="com.microsoft.onenote.mac" )
