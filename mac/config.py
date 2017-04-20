@@ -12,14 +12,14 @@ def configure(keymap):
     # Text editer setting for editting config.py file
 
     # Setting with program file path (Simple usage)
-    if 1:
+    if 0:
         keymap.editor = "TextEdit"
         #keymap.editor = "Sublime Text 2"
 
     # Setting with callable object (Advanced usage)
-    if 0:
+    if 1:
         def editor(path):
-            subprocess.call([ "open", "-a", "TextEdit", path ])
+            subprocess.call([ "open", "-a", "MacVim", path ])
         keymap.editor = editor
 
 
@@ -51,12 +51,9 @@ def configure(keymap):
         # ワンショットモディファイア
 
         # 単独 および 修飾キーと一緒に押された場合
-        for modify in ("", "Shift-", "Ctrl-", "Ctrl-Shift-", "Alt-", "Cmd-Shift-"):
+        for modify in ("", "Shift-", "Ctrl-", "Ctrl-Shift-", "Alt-", "Cmd-", "Cmd-Shift-"):
             # Space
             keymap_global[ "O-" + modify + "RShift" ] = modify + "Space"
-
-        # command + Space で Alfred を実行する
-        keymap_global[ "O-Cmd-RShift" ] = keymap.SubProcessCallCommand( cmd=[ "open", "-a", "Alfred" ], cwd=os.environ["HOME"] )
 
         # かな
         keymap_global["O-RCtrl"] = "(104)"
@@ -110,14 +107,28 @@ def configure(keymap):
 
 
     # --------------------------------------------------------------------
-    # 特定ウィンドウのアクティブ化
+    # 特定ウィンドウのアクティブ化／アプリケーションの実行
     # --------------------------------------------------------------------
     if 1:
         # User0 + 1 : Finder
-        keymap_global[ "User0-1" ] = keymap.ActivateApplicationCommand( app_name="com.apple.finder" )
+        keymap_global[ "User0-1" ] = keymap.SubProcessCallCommand( cmd=[ "open", "-a", "Finder" ], cwd=os.environ["HOME"] )
         # User0 + 2 : Safari
-        keymap_global[ "User0-2" ] = keymap.ActivateApplicationCommand( app_name="com.apple.Safari" )
+        keymap_global[ "User0-2" ] = keymap.SubProcessCallCommand( cmd=[ "open", "-a", "Safari" ], cwd=os.environ["HOME"] )
         # User0 + 3 : Terminal
         keymap_global[ "User0-3" ] = keymap.ActivateApplicationCommand( app_name="com.apple.Terminal" )
-        # User0 + 4 : OneNote
-        keymap_global[ "User0-4" ] = keymap.ActivateApplicationCommand( app_name="com.microsoft.onenote.mac" )
+        # User0 + 4／User0 + ; : MacVim
+        keymap_global[ "User0-4" ]         = keymap.SubProcessCallCommand( cmd=[ "open", "-a", "MacVim" ], cwd=os.environ["HOME"] )
+        keymap_global[ "User0-Semicolon" ] = keymap.SubProcessCallCommand( cmd=[ "open", "-a", "MacVim" ], cwd=os.environ["HOME"] )
+        # User0 + Space : Alfred
+        keymap_global[ "User0-RShift" ] = keymap.SubProcessCallCommand( cmd=[ "open", "-a", "Alfred" ], cwd=os.environ["HOME"] )
+        # User0 + M : Google Keep
+        keymap_global[ "User0-M" ] = keymap.SubProcessCallCommand( cmd=[ "open", "-a", "Default hmjkmjkepdijhoojdojkdfohbdgmmhki.app" ], cwd=os.environ["HOME"] )
+        # User0 + N : OneNote
+        keymap_global[ "User0-N" ] = keymap.SubProcessCallCommand( cmd=[ "open", "-a", "Microsoft OneNote" ], cwd=os.environ["HOME"] )
+
+    # --------------------------------------------------------------------
+    # クリップボード関係
+    # --------------------------------------------------------------------
+    if 1:
+        keymap_global[ "User0-Z" ] = keymap.command_ClipboardList
+
