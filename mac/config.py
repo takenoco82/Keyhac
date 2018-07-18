@@ -27,10 +27,8 @@ def configure(keymap):
     # 単純なキーの置き換え
     # --------------------------------------------------------------------
 
-    # Space: 右Shift
-    keymap.replaceKey( "Space", "RShift" )
-    # かな : 右Ctrl
-    keymap.replaceKey( 104, "RCtrl" )
+    # かな : 右Shift
+    keymap.replaceKey( 104, "RShift" )
 
 
     # --------------------------------------------------------------------
@@ -50,13 +48,8 @@ def configure(keymap):
         # --------------------------------------------------------------------
         # ワンショットモディファイア
 
-        # 単独 および 修飾キーと一緒に押された場合
-        for modify in ("", "Shift-", "Ctrl-", "Ctrl-Shift-", "Alt-", "Cmd-", "Cmd-Shift-"):
-            # Space
-            keymap_global[ "O-" + modify + "RShift" ] = modify + "Space"
-
         # かな
-        keymap_global["O-RCtrl"] = "(104)"
+        keymap_global["O-RShift"] = "(104)"
         # 英数
         keymap_global["O-(102)"] = "(102)"
 
@@ -64,8 +57,8 @@ def configure(keymap):
         # --------------------------------------------------------------------
         # 単純なキーマップ
 
-        # Shift, Ctrl を含めた組み合わせを定義する
-        for modify in ("", "Shift-", "Ctrl-", "Ctrl-Shift-"):
+        # Shift, Ctrl などの修飾キーを含めた組み合わせを定義する
+        for modify in ("", "Shift-", "Ctrl-", "Ctrl-Shift-", "Alt-", "Cmd-"):
             # User0 + H, J, K, L: ←↓↑→
             keymap_global[ modify + "User0-H" ] = modify + "Left"
             keymap_global[ modify + "User0-J" ] = modify + "Down"
