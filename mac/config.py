@@ -140,3 +140,66 @@ def configure(keymap):
     if 1:
         keymap_global[ "User0-Z" ] = keymap.command_ClipboardList
 
+    # --------------------------------------------------------------------
+    # 特定のウィンドウのキーマップの定義
+    # --------------------------------------------------------------------
+    if 1:
+        # --------------------------------------------------------------------
+        # Alfred
+        keymap_alfred = keymap.defineWindowKeymap( app_name="com.alfredapp.Alfred" )
+
+        # Ctrl + [: Escape
+        keymap_alfred[ "Ctrl-CloseBracket" ] = "Escape"
+
+        # --------------------------------------------------------------------
+        # OneNote
+        keymap_onenote = keymap.defineWindowKeymap( app_name="com.microsoft.onenote.mac" )
+
+        # コピペとアンドゥ・リドゥは、Windowsと同じショートカットが使いたい
+        keymap_onenote[ "Ctrl-C" ] = "Cmd-C"
+        keymap_onenote[ "Ctrl-V" ] = "Cmd-V"
+        keymap_onenote[ "Ctrl-X" ] = "Cmd-X"
+        keymap_onenote[ "Ctrl-Z" ] = "Cmd-Z"
+        keymap_onenote[ "Ctrl-Y" ] = "Cmd-Y"
+        # Ctrl + [: Escape
+        keymap_onenote[ "Ctrl-CloseBracket" ] = "Escape"
+
+        # --------------------------------------------------------------------
+        # Visual Stdio Code
+        keymap_vscode  = keymap.defineWindowKeymap( app_name="com.microsoft.VSCode" )
+
+        # コピペとアンドゥ・リドゥは、Windowsと同じショートカットが使いたい
+        keymap_vscode[ "Ctrl-C" ] = "Cmd-C"
+        keymap_vscode[ "Ctrl-V" ] = "Cmd-V"
+        keymap_vscode[ "Ctrl-X" ] = "Cmd-X"
+        keymap_vscode[ "Ctrl-Z" ] = "Cmd-Z"
+        keymap_vscode[ "Ctrl-Y" ] = "Cmd-Y"
+        # Ctrl + [: Escape
+        keymap_vscode[ "Ctrl-CloseBracket" ] = "Escape"
+
+        # --------------------------------------------------------------------
+        # Safari
+        keymap_safari  = keymap.defineWindowKeymap( app_name="com.apple.Safari" )
+
+        # コピペとアンドゥ・リドゥは、Windowsと同じショートカットが使いたい
+        keymap_safari[ "Ctrl-C" ] = "Cmd-C"
+        keymap_safari[ "Ctrl-V" ] = "Cmd-V"
+        keymap_safari[ "Ctrl-X" ] = "Cmd-X"
+        keymap_safari[ "Ctrl-Z" ] = "Cmd-Z"
+        keymap_safari[ "Ctrl-Y" ] = "Cmd-Y"
+        # Ctrl + [: Escape
+        keymap_safari[ "Ctrl-CloseBracket" ] = "Escape"
+
+        # --------------------------------------------------------------------
+        # Chrome
+        keymap_chrome  = keymap.defineWindowKeymap( app_name="com.google.Chrome" )
+
+        # コピペとアンドゥ・リドゥは、Windowsと同じショートカットが使いたい
+        keymap_chrome[ "Ctrl-C" ] = "Cmd-C"
+        keymap_chrome[ "Ctrl-V" ] = "Cmd-V"
+        keymap_chrome[ "Ctrl-X" ] = "Cmd-X"
+        keymap_chrome[ "Ctrl-Z" ] = "Cmd-Z"
+        keymap_chrome[ "Ctrl-Y" ] = "Cmd-Y"
+        # Ctrl + [: Escape
+        keymap_chrome[ "Ctrl-CloseBracket" ] = "Escape"
+
