@@ -121,11 +121,11 @@ def configure(keymap):
         keymap_global[ "User0-4" ]         = keymap.SubProcessCallCommand( cmd=[ "open", "-a", "MacVim" ], cwd=os.environ["HOME"] )
         keymap_global[ "User0-Semicolon" ] = keymap.SubProcessCallCommand( cmd=[ "open", "-a", "MacVim" ], cwd=os.environ["HOME"] )
         # User0 + Space : Alfred
-        keymap_global[ "User0-RShift" ] = keymap.SubProcessCallCommand( cmd=[ "open", "-a", "Alfred" ], cwd=os.environ["HOME"] )
         # User0 + M : Google Keep
         keymap_global[ "User0-M" ] = keymap.SubProcessCallCommand( cmd=[ "open", "-a", "Default hmjkmjkepdijhoojdojkdfohbdgmmhki.app" ], cwd=os.environ["HOME"] )
         # User0 + N : OneNote
         keymap_global[ "User0-N" ] = keymap.SubProcessCallCommand( cmd=[ "open", "-a", "Microsoft OneNote" ], cwd=os.environ["HOME"] )
+        keymap_global[ "User0-Space" ] = keymap.SubProcessCallCommand( cmd=[ "open", "-a", "Alfred" ], cwd=os.environ["HOME"] )
 
     # --------------------------------------------------------------------
     # クリップボード関係
