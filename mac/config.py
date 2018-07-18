@@ -85,26 +85,34 @@ def configure(keymap):
         # User0 + D: Delete
         keymap_global[ "User0-D" ] = "Delete"
 
-        # User0 + C, V, X: コピー, 貼り付け, 切り取り
-        keymap_global[ "User0-C" ] = "Cmd-C"
-        keymap_global[ "User0-V" ] = "Cmd-V"
-        keymap_global[ "User0-X" ] = "Cmd-X"
+        # 簡単に矩形選択の画面キャプチャが取りたい
+        # User0 + S: Command + Ctrl + Shift + 4
+        keymap_global[ "User0-S" ] = "Cmd-Ctrl-Shift-4"
 
-        # User0 + U, R: Undo, Redo
-        keymap_global[ "User0-U" ] = "Cmd-Z"
-        keymap_global[ "User0-R" ] = "Cmd-Y"
+        # バックスラッシュをWindowsと同じように入力したい
+        # _: \
+        keymap_global[ "(94)" ] = "Alt-(93)"
 
 
         # --------------------------------------------------------------------
         # 画面サイズ変更 Spectacle
 
         # User0 + ↑: フルスクリーン
-        keymap_global[ "User0-Up" ]    = "Alt-Cmd-F"
+        keymap_global[ "User0-Up" ]    = "Alt-Cmd-O"
         # User0 + ←: 左半分
         keymap_global[ "User0-Left" ]  = "Alt-Cmd-H"
         # User0 + →: 右半分
         keymap_global[ "User0-Right" ] = "Alt-Cmd-L"
 
+        # Vimと同じように、２ストロークで画面サイズを変更
+        keymap_global[ "User0-W" ] = keymap.defineMultiStrokeKeymap("User0-W")
+        # User0 + W > O: フルスクリーン
+        keymap_global[ "User0-W" ][ "O" ] = "Alt-Cmd-O"
+        # User0 + W > H,J, K, L: 左半分, 下半分, 上半分, 右半分
+        keymap_global[ "User0-W" ][ "H" ] = "Alt-Cmd-H"
+        keymap_global[ "User0-W" ][ "J" ] = "Alt-Cmd-J"
+        keymap_global[ "User0-W" ][ "K" ] = "Alt-Cmd-K"
+        keymap_global[ "User0-W" ][ "L" ] = "Alt-Cmd-L"
 
     # --------------------------------------------------------------------
     # 特定ウィンドウのアクティブ化／アプリケーションの実行
