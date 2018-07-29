@@ -180,6 +180,18 @@ def configure(keymap):
         keymap_safari[ "Ctrl-X" ] = "Cmd-X"
         keymap_safari[ "Ctrl-Z" ] = "Cmd-Z"
         keymap_safari[ "Ctrl-Y" ] = "Cmd-Y"
+        # タブ操作
+        keymap_safari[ "Ctrl-T" ] = "Cmd-T"
+        keymap_safari[ "Ctrl-W" ] = "Cmd-W"
+        keymap_safari[ "Ctrl-Shift-T" ] = "Cmd-Shift-T"
+        # ページ内検索
+        keymap_safari[ "Ctrl-F" ] = "Cmd-F"
+        # リロード
+        keymap_safari[ "Ctrl-R" ] = "Cmd-R"
+        # アドレスバーにカーソルを移動
+        keymap_safari[ "Ctrl-L" ] = "Cmd-L"
+        # すべてのタブを表示
+        keymap_safari[ "Ctrl-E" ] = "Shift-Cmd-(93)"
         # Ctrl + [: Escape
         keymap_safari[ "Ctrl-CloseBracket" ] = "Escape"
 
