@@ -191,7 +191,7 @@ def configure(keymap):
         # アドレスバーにカーソルを移動
         keymap_safari[ "Ctrl-L" ] = "Cmd-L"
         # すべてのタブを表示
-        keymap_safari[ "Ctrl-E" ] = "Shift-Cmd-(93)"
+        keymap_safari[ "Ctrl-G" ] = "Shift-Cmd-(93)"
         # Ctrl + [: Escape
         keymap_safari[ "Ctrl-CloseBracket" ] = "Escape"
 
