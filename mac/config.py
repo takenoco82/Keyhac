@@ -208,3 +208,19 @@ def configure(keymap):
         # Ctrl + [: Escape
         keymap_chrome[ "Ctrl-CloseBracket" ] = "Escape"
 
+        # --------------------------------------------------------------------
+        # Dynalist
+        keymap_dynalist  = keymap.defineWindowKeymap( app_name="io.dynalist" )
+
+        # コピペとアンドゥ・リドゥは、Windowsと同じショートカットが使いたい
+        keymap_dynalist[ "Ctrl-C" ] = "Cmd-C"
+        keymap_dynalist[ "Ctrl-V" ] = "Cmd-V"
+        keymap_dynalist[ "Ctrl-X" ] = "Cmd-X"
+        keymap_dynalist[ "Ctrl-Z" ] = "Cmd-Z"
+        keymap_dynalist[ "Ctrl-Y" ] = "Cmd-Y"
+        # Ctrl + [: Escape
+        keymap_dynalist[ "Ctrl-CloseBracket" ] = "Escape"
+
+        # command + ←↓↑→ で移動させたい
+        keymap_dynalist[ "Cmd-Right" ] = "Tab"
+        keymap_dynalist[ "Cmd-Left" ] = "Shift-Tab"
