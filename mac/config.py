@@ -80,7 +80,8 @@ def configure(keymap):
 
         # 簡単に矩形選択の画面キャプチャが取りたい
         # User0 + S: Command + Ctrl + Shift + 4
-        keymap_global[ "User0-S" ] = "Cmd-Ctrl-Shift-4"
+        keymap_global[ "User0-S" ] = "Cmd-Shift-4"
+        keymap_global[ "User0-Shift-S" ] = "Cmd-Ctrl-Shift-4"
 
         # バックスラッシュをWindowsと同じように入力したい
         # _: \
@@ -111,26 +112,21 @@ def configure(keymap):
     # 特定ウィンドウのアクティブ化／アプリケーションの実行
     # --------------------------------------------------------------------
     if 1:
-        # User0 + 1 : Finder
-        keymap_global[ "User0-1" ] = keymap.SubProcessCallCommand( cmd=[ "open", "-a", "Finder" ], cwd=os.environ["HOME"] )
-        # User0 + 2 : Safari
-        keymap_global[ "User0-2" ] = keymap.SubProcessCallCommand( cmd=[ "open", "-a", "Safari" ], cwd=os.environ["HOME"] )
-        # User0 + 3 : Terminal
-        keymap_global[ "User0-3" ] = keymap.ActivateApplicationCommand( app_name="com.apple.Terminal" )
-        # User0 + 4／User0 + ; : MacVim
-        keymap_global[ "User0-4" ]         = keymap.SubProcessCallCommand( cmd=[ "open", "-a", "MacVim" ], cwd=os.environ["HOME"] )
-        keymap_global[ "User0-Semicolon" ] = keymap.SubProcessCallCommand( cmd=[ "open", "-a", "MacVim" ], cwd=os.environ["HOME"] )
+        # User0 + 1 : Chrome
+        keymap_global[ "User0-1" ] = keymap.SubProcessCallCommand( cmd=[ "open", "-a", "Google Chrome" ], cwd=os.environ["HOME"] )
+        # User0 + 2 : iTerm2
+        keymap_global[ "User0-2" ] = keymap.ActivateApplicationCommand( app_name="com.googlecode.iterm2" )
+        # User0 + 3 : Visual Studio Code
+        keymap_global[ "User0-3" ] = keymap.ActivateApplicationCommand( app_name="com.microsoft.VSCode" )
+        # User0 + 4 : Safari
+        keymap_global[ "User0-4" ] = keymap.SubProcessCallCommand( cmd=[ "open", "-a", "Safari" ], cwd=os.environ["HOME"] )
         # User0 + Space : Alfred
-        # User0 + M : Google Keep
-        keymap_global[ "User0-M" ] = keymap.SubProcessCallCommand( cmd=[ "open", "-a", "Default hmjkmjkepdijhoojdojkdfohbdgmmhki.app" ], cwd=os.environ["HOME"] )
-        # User0 + N : OneNote
-        keymap_global[ "User0-N" ] = keymap.SubProcessCallCommand( cmd=[ "open", "-a", "Microsoft OneNote" ], cwd=os.environ["HOME"] )
-        keymap_global[ "User0-Space" ] = keymap.SubProcessCallCommand( cmd=[ "open", "-a", "Alfred" ], cwd=os.environ["HOME"] )
+        #keymap_global[ "User0-Space" ] = keymap.SubProcessCallCommand( cmd=[ "open", "-a", "Alfred 3" ], cwd=os.environ["HOME"] )
 
     # --------------------------------------------------------------------
     # クリップボード関係
     # --------------------------------------------------------------------
-    if 1:
+    if 0:
         keymap_global[ "User0-Z" ] = keymap.command_ClipboardList
 
     # --------------------------------------------------------------------
@@ -139,7 +135,7 @@ def configure(keymap):
     if 1:
         # --------------------------------------------------------------------
         # Alfred
-        keymap_alfred = keymap.defineWindowKeymap( app_name="com.alfredapp.Alfred" )
+        keymap_alfred = keymap.defineWindowKeymap( app_name="com.runningwithcrayons.Alfred-3" )
 
         # Ctrl + [: Escape
         keymap_alfred[ "Ctrl-CloseBracket" ] = "Escape"
@@ -148,12 +144,6 @@ def configure(keymap):
         # OneNote
         keymap_onenote = keymap.defineWindowKeymap( app_name="com.microsoft.onenote.mac" )
 
-        # コピペとアンドゥ・リドゥは、Windowsと同じショートカットが使いたい
-        keymap_onenote[ "Ctrl-C" ] = "Cmd-C"
-        keymap_onenote[ "Ctrl-V" ] = "Cmd-V"
-        keymap_onenote[ "Ctrl-X" ] = "Cmd-X"
-        keymap_onenote[ "Ctrl-Z" ] = "Cmd-Z"
-        keymap_onenote[ "Ctrl-Y" ] = "Cmd-Y"
         # Ctrl + [: Escape
         keymap_onenote[ "Ctrl-CloseBracket" ] = "Escape"
 
@@ -161,12 +151,6 @@ def configure(keymap):
         # Visual Stdio Code
         keymap_vscode  = keymap.defineWindowKeymap( app_name="com.microsoft.VSCode" )
 
-        # コピペとアンドゥ・リドゥは、Windowsと同じショートカットが使いたい
-        keymap_vscode[ "Ctrl-C" ] = "Cmd-C"
-        keymap_vscode[ "Ctrl-V" ] = "Cmd-V"
-        keymap_vscode[ "Ctrl-X" ] = "Cmd-X"
-        keymap_vscode[ "Ctrl-Z" ] = "Cmd-Z"
-        keymap_vscode[ "Ctrl-Y" ] = "Cmd-Y"
         # Ctrl + [: Escape
         keymap_vscode[ "Ctrl-CloseBracket" ] = "Escape"
 
@@ -174,22 +158,6 @@ def configure(keymap):
         # Safari
         keymap_safari  = keymap.defineWindowKeymap( app_name="com.apple.Safari" )
 
-        # コピペとアンドゥ・リドゥは、Windowsと同じショートカットが使いたい
-        keymap_safari[ "Ctrl-C" ] = "Cmd-C"
-        keymap_safari[ "Ctrl-V" ] = "Cmd-V"
-        keymap_safari[ "Ctrl-X" ] = "Cmd-X"
-        keymap_safari[ "Ctrl-Z" ] = "Cmd-Z"
-        keymap_safari[ "Ctrl-Y" ] = "Cmd-Y"
-        # タブ操作
-        keymap_safari[ "Ctrl-T" ] = "Cmd-T"
-        keymap_safari[ "Ctrl-W" ] = "Cmd-W"
-        keymap_safari[ "Ctrl-Shift-T" ] = "Cmd-Shift-T"
-        # ページ内検索
-        keymap_safari[ "Ctrl-F" ] = "Cmd-F"
-        # リロード
-        keymap_safari[ "Ctrl-R" ] = "Cmd-R"
-        # アドレスバーにカーソルを移動
-        keymap_safari[ "Ctrl-L" ] = "Cmd-L"
         # すべてのタブを表示
         keymap_safari[ "Ctrl-G" ] = "Shift-Cmd-(93)"
         # Ctrl + [: Escape
@@ -199,12 +167,6 @@ def configure(keymap):
         # Chrome
         keymap_chrome  = keymap.defineWindowKeymap( app_name="com.google.Chrome" )
 
-        # コピペとアンドゥ・リドゥは、Windowsと同じショートカットが使いたい
-        keymap_chrome[ "Ctrl-C" ] = "Cmd-C"
-        keymap_chrome[ "Ctrl-V" ] = "Cmd-V"
-        keymap_chrome[ "Ctrl-X" ] = "Cmd-X"
-        keymap_chrome[ "Ctrl-Z" ] = "Cmd-Z"
-        keymap_chrome[ "Ctrl-Y" ] = "Cmd-Y"
         # Ctrl + [: Escape
         keymap_chrome[ "Ctrl-CloseBracket" ] = "Escape"
 
@@ -212,12 +174,6 @@ def configure(keymap):
         # Dynalist
         keymap_dynalist  = keymap.defineWindowKeymap( app_name="io.dynalist" )
 
-        # コピペとアンドゥ・リドゥは、Windowsと同じショートカットが使いたい
-        keymap_dynalist[ "Ctrl-C" ] = "Cmd-C"
-        keymap_dynalist[ "Ctrl-V" ] = "Cmd-V"
-        keymap_dynalist[ "Ctrl-X" ] = "Cmd-X"
-        keymap_dynalist[ "Ctrl-Z" ] = "Cmd-Z"
-        keymap_dynalist[ "Ctrl-Y" ] = "Cmd-Y"
         # Ctrl + [: Escape
         keymap_dynalist[ "Ctrl-CloseBracket" ] = "Escape"
 
