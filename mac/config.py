@@ -18,8 +18,10 @@ def configure(keymap):
 
     # Setting with callable object (Advanced usage)
     if 1:
+
         def editor(path):
             subprocess.call(["open", "-a", "MacVim", path])
+
         keymap.editor = editor
 
     # --------------------------------------------------------------------
@@ -109,13 +111,20 @@ def configure(keymap):
     if 1:
         # User0 + 1 : Chrome
         keymap_global["User0-1"] = keymap.SubProcessCallCommand(
-            cmd=["open", "-a", "Google Chrome"], cwd=os.environ["HOME"])
+            cmd=["open", "-a", "Google Chrome"], cwd=os.environ["HOME"]
+        )
         # User0 + 2 : iTerm2
-        keymap_global["User0-2"] = keymap.ActivateApplicationCommand(app_name="com.googlecode.iterm2")
+        keymap_global["User0-2"] = keymap.ActivateApplicationCommand(
+            app_name="com.googlecode.iterm2"
+        )
         # User0 + 3 : Visual Studio Code
-        keymap_global["User0-3"] = keymap.ActivateApplicationCommand(app_name="com.microsoft.VSCode")
+        keymap_global["User0-3"] = keymap.ActivateApplicationCommand(
+            app_name="com.microsoft.VSCode"
+        )
         # User0 + 4 : Safari
-        keymap_global["User0-4"] = keymap.SubProcessCallCommand(cmd=["open", "-a", "Safari"], cwd=os.environ["HOME"])
+        keymap_global["User0-4"] = keymap.SubProcessCallCommand(
+            cmd=["open", "-a", "Safari"], cwd=os.environ["HOME"]
+        )
         # User0 + Space : Alfred
         # keymap_global["User0-Space"] = keymap.SubProcessCallCommand(
         #   cmd=["open", "-a", "Alfred 3"], cwd=os.environ["HOME"])
@@ -132,7 +141,9 @@ def configure(keymap):
     if 1:
         # --------------------------------------------------------------------
         # Alfred
-        keymap_alfred = keymap.defineWindowKeymap(app_name="com.runningwithcrayons.Alfred-3")
+        keymap_alfred = keymap.defineWindowKeymap(
+            app_name="com.runningwithcrayons.Alfred-3"
+        )
 
         # Ctrl + [: Escape
         keymap_alfred["Ctrl-CloseBracket"] = "Escape"
@@ -169,7 +180,9 @@ def configure(keymap):
 
         # --------------------------------------------------------------------
         # DBeaver
-        keymap_dbearver = keymap.defineWindowKeymap(app_name="org.jkiss.dbeaver.core.product")
+        keymap_dbearver = keymap.defineWindowKeymap(
+            app_name="org.jkiss.dbeaver.core.product"
+        )
 
         # Ctrl + [: Escape
         keymap_dbearver["Ctrl-CloseBracket"] = "Escape"
