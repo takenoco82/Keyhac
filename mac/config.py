@@ -168,6 +168,13 @@ def configure(keymap):
         keymap_chrome["Ctrl-CloseBracket"] = "Escape"
 
         # --------------------------------------------------------------------
+        # DBeaver
+        keymap_dbearver = keymap.defineWindowKeymap(app_name="org.jkiss.dbeaver.core.product")
+
+        # Ctrl + [: Escape
+        keymap_dbearver["Ctrl-CloseBracket"] = "Escape"
+
+        # --------------------------------------------------------------------
         # Dynalist
         keymap_dynalist = keymap.defineWindowKeymap(app_name="io.dynalist")
 
