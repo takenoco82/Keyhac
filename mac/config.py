@@ -95,6 +95,11 @@ def configure(keymap):
         # User0 + →: 右半分
         keymap_global["User0-Right"] = "Alt-Cmd-L"
 
+        # User0 + Shift + ←: ウィンドウを前の画面に移動する
+        keymap_global["User0-Shift-Left"] = "Alt-Cmd-Shift-H"
+        # User0 + Shift + →: ウィンドウを次の画面に移動する
+        keymap_global["User0-Shift-Right"] = "Alt-Cmd-Shift-L"
+
         # Vimと同じように、２ストロークで画面サイズを変更
         keymap_global["User0-W"] = keymap.defineMultiStrokeKeymap("User0-W")
         # User0 + W > O: フルスクリーン
