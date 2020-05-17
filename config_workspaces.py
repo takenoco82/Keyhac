@@ -83,3 +83,8 @@ def configure(keymap):
 
         # User0 + d: <Delete>
         keymap_global[ "U0-D" ] = "Delete"
+
+    # Customizing clipboard history list
+    if 1:
+        # Disable clipboard monitoring hook (Default:Enabled)
+        keymap.clipboard_history.enableHook(False)
