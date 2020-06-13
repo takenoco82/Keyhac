@@ -34,6 +34,8 @@ def configure(keymap):
 
     # Numlock : 右Shift
     keymap.replaceKey(71, 255)
+    # Insert -> 左Option
+    keymap.replaceKey(114, "LAlt")
 
     # --------------------------------------------------------------------
     # ユーザモディファイアキーの定義
@@ -65,8 +67,6 @@ def configure(keymap):
 
         # --------------------------------------------------------------------
         # 単純なキーマップ
-        # テンキーEnter -> 左Option
-        keymap.replaceKey(76, "LAlt")
 
         # Shift, Ctrl などの修飾キーを含めた組み合わせを定義する
         for modify in ("", "Shift-", "Ctrl-", "Ctrl-Shift-", "Alt-", "Cmd-"):
