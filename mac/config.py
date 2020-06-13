@@ -30,6 +30,10 @@ def configure(keymap):
 
     # かな : 右Shift
     keymap.replaceKey(104, "RShift")
+    keymap.replaceKey( "RAlt", "RCmd" )
+
+    # Numlock : 右Shift
+    keymap.replaceKey(71, 255)
 
     # --------------------------------------------------------------------
     # ユーザモディファイアキーの定義
@@ -37,6 +41,7 @@ def configure(keymap):
 
     # 英数: User0
     keymap.defineModifier(102, "User0")
+    keymap.defineModifier(255, "User1")
 
     # --------------------------------------------------------------------
     # グローバルキーマップの定義
@@ -47,13 +52,21 @@ def configure(keymap):
         # --------------------------------------------------------------------
         # ワンショットモディファイア
 
+        # LCmdが単独で押されたときは、英数
+        keymap_global["O-LCmd"] = "(102)"
+        # RCmdが単独で押されたときは、かな
+        keymap_global["O-RCmd"] = "(104)"
+
         # かな
         keymap_global["O-RShift"] = "(104)"
         # 英数
         keymap_global["O-(102)"] = "(102)"
+        keymap_global["O-(255)"] = "(104)"
 
         # --------------------------------------------------------------------
         # 単純なキーマップ
+        # テンキーEnter -> 左Option
+        keymap.replaceKey(76, "LAlt")
 
         # Shift, Ctrl などの修飾キーを含めた組み合わせを定義する
         for modify in ("", "Shift-", "Ctrl-", "Ctrl-Shift-", "Alt-", "Cmd-"):
@@ -71,10 +84,27 @@ def configure(keymap):
             keymap_global[modify + "User0-F"] = modify + "PageDown"
             keymap_global[modify + "User0-V"] = modify + "PageUp"
 
-        # User0 + B: BackSpace
-        keymap_global["User0-B"] = "Back"
+            # User1 + H, J, K, L: ←↓↑→
+            keymap_global[modify + "User1-H"] = modify + "Left"
+            keymap_global[modify + "User1-J"] = modify + "Down"
+            keymap_global[modify + "User1-K"] = modify + "Up"
+            keymap_global[modify + "User1-L"] = modify + "Right"
+
+            # User1 + A, E: Home, End
+            keymap_global[modify + "User1-A"] = modify + "Home"
+            keymap_global[modify + "User1-E"] = modify + "End"
+
+            # User1 + F, V: PgDn, PgUp
+            keymap_global[modify + "User1-F"] = modify + "PageDown"
+            keymap_global[modify + "User1-V"] = modify + "PageUp"
+
+        keymap_global["Ctrl-OpenBracket"] = "Escape"
+        keymap_global["Ctrl-m"] = "Enter"
+
         # User0 + D: Delete
         keymap_global["User0-D"] = "Delete"
+        # User1 + D: Delete
+        keymap_global["User1-D"] = "Delete"
 
         # 簡単に矩形選択の画面キャプチャが取りたい
         # User0 + S: Command + Ctrl + Shift + 4
@@ -147,25 +177,16 @@ def configure(keymap):
         # --------------------------------------------------------------------
         # Alfred
         keymap_alfred = keymap.defineWindowKeymap(
-            app_name="com.runningwithcrayons.Alfred-3"
+            app_name="com.runningwithcrayons.Alfred"
         )
-
-        # Ctrl + [: Escape
-        keymap_alfred["Ctrl-CloseBracket"] = "Escape"
 
         # --------------------------------------------------------------------
         # OneNote
         keymap_onenote = keymap.defineWindowKeymap(app_name="com.microsoft.onenote.mac")
 
-        # Ctrl + [: Escape
-        keymap_onenote["Ctrl-CloseBracket"] = "Escape"
-
         # --------------------------------------------------------------------
         # Visual Stdio Code
         keymap_vscode = keymap.defineWindowKeymap(app_name="com.microsoft.VSCode")
-
-        # Ctrl + [: Escape
-        keymap_vscode["Ctrl-CloseBracket"] = "Escape"
 
         # --------------------------------------------------------------------
         # Safari
@@ -173,15 +194,10 @@ def configure(keymap):
 
         # すべてのタブを表示
         keymap_safari["Ctrl-G"] = "Shift-Cmd-(93)"
-        # Ctrl + [: Escape
-        keymap_safari["Ctrl-CloseBracket"] = "Escape"
 
         # --------------------------------------------------------------------
         # Chrome
         keymap_chrome = keymap.defineWindowKeymap(app_name="com.google.Chrome")
-
-        # Ctrl + [: Escape
-        keymap_chrome["Ctrl-CloseBracket"] = "Escape"
 
         # --------------------------------------------------------------------
         # DBeaver
@@ -189,15 +205,9 @@ def configure(keymap):
             app_name="org.jkiss.dbeaver.core.product"
         )
 
-        # Ctrl + [: Escape
-        keymap_dbearver["Ctrl-CloseBracket"] = "Escape"
-
         # --------------------------------------------------------------------
         # Dynalist
         keymap_dynalist = keymap.defineWindowKeymap(app_name="io.dynalist")
-
-        # Ctrl + [: Escape
-        keymap_dynalist["Ctrl-CloseBracket"] = "Escape"
 
         # command + ←↓↑→ で移動させたい
         keymap_dynalist["Cmd-Right"] = "Tab"
