@@ -1,4 +1,4 @@
-import sys
+﻿import sys
 import os
 import datetime
 import subprocess
@@ -45,24 +45,25 @@ def configure(keymap):
         keymap.defineModifier(255, "User1")
 
     # --------------------------------------------------------------------
-    # グローバルキーマップの定義
-    # --------------------------------------------------------------------
+    # Global keymap which affects any windows
+    keymap_global = keymap.defineWindowKeymap()
+
+    # for JIS Keyboard
     if 1:
-        keymap_global = keymap.defineWindowKeymap()
-
-        # --------------------------------------------------------------------
-        # ワンショットモディファイア
-
-        # LCmdが単独で押されたときは、英数
-        keymap_global["O-LCmd"] = "(102)"
-        # RCmdが単独で押されたときは、かな
-        keymap_global["O-RCmd"] = "(104)"
-
-        # かな
-        keymap_global["O-RShift"] = "(104)"
-        # 英数
+        # 英数が単独で押されたときは、英数
         keymap_global["O-(102)"] = "(102)"
+
+    # for the NiZ keyboard
+    if 1:
+        # 左Ctrl が単独で押されたときは 英数
+        keymap_global["O-LCtrl"] = "(102)"
+        # 仮想キーコード255 が単独で押されたときは かな
         keymap_global["O-(255)"] = "(104)"
+
+        # 左Command が単独で押されたときは 英数
+        keymap_global["O-LCmd"] = "(102)"
+        # 右Command が単独で押されたときは かな
+        keymap_global["O-RCmd"] = "(104)"
 
         # --------------------------------------------------------------------
         # 単純なキーマップ
