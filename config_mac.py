@@ -1,4 +1,4 @@
-﻿import sys
+import sys
 import os
 import datetime
 import subprocess
@@ -25,25 +25,24 @@ def configure(keymap):
         keymap.editor = editor
 
     # --------------------------------------------------------------------
-    # 単純なキーの置き換え
-    # --------------------------------------------------------------------
+    # Key replacement and modifier key definition
 
-    # かな : 右Shift
-    keymap.replaceKey(104, "RShift")
-    keymap.replaceKey( "RAlt", "RCmd" )
+    # for JIS Keyboard
+    if 1:
+        # 英数: ユーザ定義モディファイキー User0
+        keymap.defineModifier(102, "User0")
 
-    # Numlock : 右Shift
-    keymap.replaceKey(71, 255)
-    # Insert -> 左Option
-    keymap.replaceKey(114, "LAlt")
+    # for the NiZ keyboard
+    if 1:
+        # 右Option -> 右Command
+        keymap.replaceKey("RAlt", "RCmd")
+        # Numlock -> 仮想キーコード 255 (ユーザ定義モディファイキーにするため)
+        keymap.replaceKey(71, 255)
+        # Insert -> 左Option
+        keymap.replaceKey(114, "LAlt")
 
-    # --------------------------------------------------------------------
-    # ユーザモディファイアキーの定義
-    # --------------------------------------------------------------------
-
-    # 英数: User0
-    keymap.defineModifier(102, "User0")
-    keymap.defineModifier(255, "User1")
+        # 仮想キーコード255: ユーザ定義モディファイキー User1
+        keymap.defineModifier(255, "User1")
 
     # --------------------------------------------------------------------
     # グローバルキーマップの定義
