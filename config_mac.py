@@ -48,6 +48,11 @@ def configure(keymap):
     # Global keymap which affects any windows
     keymap_global = keymap.defineWindowKeymap()
 
+    # Ctrl + m: <Enter>
+    keymap_global["Ctrl-m"] = "Enter"
+    # Ctrl + [: <Esc>
+    keymap_global["Ctrl-OpenBracket"] = "Esc"
+
     # for JIS Keyboard
     if 1:
         # 英数が単独で押されたときは、英数
@@ -97,9 +102,6 @@ def configure(keymap):
             # User1 + F, V: PgDn, PgUp
             keymap_global[modify + "User1-F"] = modify + "PageDown"
             keymap_global[modify + "User1-V"] = modify + "PageUp"
-
-        keymap_global["Ctrl-OpenBracket"] = "Escape"
-        keymap_global["Ctrl-m"] = "Enter"
 
         # User0 + D: Delete
         keymap_global["User0-D"] = "Delete"
