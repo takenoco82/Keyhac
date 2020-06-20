@@ -27,7 +27,7 @@ def configure(keymap):
     # --------------------------------------------------------------------
     # Simple key replacement
 
-    # NumLock (右Fn) -> 255 ユーザモディファイキーにするため
+    # NumLock (左Fn) -> 255 ユーザモディファイキーにするため
     keymap.replaceKey("NumLock", 255)
     # Insert -> 左Option
     keymap.replaceKey("Insert", "LWin")
@@ -35,17 +35,17 @@ def configure(keymap):
     # --------------------------------------------------------------------
     # User modifier key definition
 
-    # 255(右Fn) をモディファイアキーとして定義
+    # 255(左Fn) をモディファイアキーとして定義
     keymap.defineModifier(255, "User0")
 
     # Global keymap which affects any windows
     if 1:
         keymap_global = keymap.defineWindowKeymap()
 
-        # 左Altが単独で押されたときは、「無変換」
-        keymap_global["O-LAlt"] = "(29)"
-        # 255(右Fn)が単独で押されたときは、「変換」
-        keymap_global["O-(255)"] = "(28)"
+        # 右Ctrlが単独で押されたときは、「変換」
+        keymap_global["O-RCtrl"] = "(28)"
+        # 255(左Fn)が単独で押されたときは、「無変換」
+        keymap_global["O-(255)"] = "(29)"
 
         # Ctrl + h: <BackSpace>
         keymap_global["Ctrl-h"] = "Back"
