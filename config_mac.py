@@ -60,10 +60,8 @@ def configure(keymap):
 
     # for the NiZ keyboard
     if 1:
-        # 左Ctrl が単独で押されたときは 英数
-        keymap_global["O-LCtrl"] = "(102)"
-        # 仮想キーコード255 が単独で押されたときは かな
-        keymap_global["O-(255)"] = "(104)"
+        # 仮想キーコード255 が単独で押されたときは 英数
+        keymap_global["O-(255)"] = "(102)"
 
         # 左Command が単独で押されたときは 英数
         keymap_global["O-LCmd"] = "(102)"
